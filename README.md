@@ -1,2 +1,2 @@
-# Examination helpsheets for NUS CS, prepared by Zechu, using LaTeX.
+# Examination helpsheets for NUS CS, prepared using LaTeX.
 
