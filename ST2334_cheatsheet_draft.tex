@@ -1,0 +1,354 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% writeLaTeX Example: A quick guide to LaTeX
+%
+% Source: Dave Richeson (divisbyzero.com), Dickinson College
+% 
+% A one-size-fits-all LaTeX cheat sheet. Kept to two pages, so it 
+% can be printed (double-sided) on one piece of paper
+% 
+% Feel free to distribute this example, but please keep the referral
+% to divisbyzero.com
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% How to use writeLaTeX: 
+%
+% You edit the source code here on the left, and the preview on the
+% right shows you the result within a few seconds.
+%
+% Bookmark this page and share the URL with your co-authors. They can
+% edit at the same time!
+%
+% You can upload figures, bibliographies, custom classes and
+% styles using the files menu.
+%
+% If you're new to LaTeX, the wikibook is a great place to start:
+% http://en.wikibooks.org/wiki/LaTeX
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[10pt,landscape]{article}
+\usepackage{amssymb,amsmath,amsthm,amsfonts}
+\usepackage{multicol,multirow}
+\usepackage{calc}
+\usepackage{ifthen}
+\usepackage[landscape]{geometry}
+\usepackage[colorlinks=true,citecolor=blue,linkcolor=blue]{hyperref}
+
+
+\ifthenelse{\lengthtest { \paperwidth = 11in}}
+    { \geometry{top=.5in,left=.5in,right=.5in,bottom=.5in} }
+	{\ifthenelse{ \lengthtest{ \paperwidth = 297mm}}
+		{\geometry{top=1cm,left=1cm,right=1cm,bottom=1cm} }
+		{\geometry{top=1cm,left=1cm,right=1cm,bottom=1cm} }
+	}
+\pagestyle{empty}
+\makeatletter
+\renewcommand{\section}{\@startsection{section}{1}{0mm}%
+                                {-1ex plus -.5ex minus -.2ex}%
+                                {0.5ex plus .2ex}%x
+                                {\normalfont\large\bfseries}}
+\renewcommand{\subsection}{\@startsection{subsection}{2}{0mm}%
+                                {-1explus -.5ex minus -.2ex}%
+                                {0.5ex plus .2ex}%
+                                {\normalfont\normalsize\bfseries}}
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{0mm}%
+                                {-1ex plus -.5ex minus -.2ex}%
+                                {1ex plus .2ex}%
+                                {\normalfont\small\bfseries}}
+\makeatother
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt plus 0.5ex}
+% -----------------------------------------------------------------------
+
+\title{ST2334 Cheatsheet}
+
+\begin{document}
+
+\raggedright
+\footnotesize
+
+\begin{center}
+     \Large{\textbf{ST2334 Midterm Cheatsheet}} \\
+\end{center}
+\begin{multicols}{3}
+\setlength{\premulticols}{1pt}
+\setlength{\postmulticols}{1pt}
+\setlength{\multicolsep}{1pt}
+\setlength{\columnsep}{2pt}
+
+\section{Basic probability concepts}
+\subsection{Oberservation}
+Any recording of information, whether it is numerical or categorical.
+
+\subsection{Statistical Experiment}
+Any procedure that generates a set of data (observations).
+
+\subsection{Sample Space}
+The set of all possible outcomes of a statistical experiment is called the sample space and it is represented by the symbol $S$.
+
+\subsection{Sample Point}
+Every outcome in a sample space is called an element of the sample space or simply a sample point.
+
+\subsection{Event}
+An event is a subset of a sample space.
+
+\subsection{Simple Event}
+An event is said to be simple if it consists of exactly one outcome (i.e. one sample point)
+
+\subsection{Compound Event}
+An event is said to be compound if it consists of more than one outcomes (or sample points).
+
+\subsection{}
+1. The sample space is itself an event and is usually called a sure event. \\
+2. A subset of S that contains no elements at all is the empty set, denoted by $\emptyset$ , and is usually called a null event.
+
+
+\section{Operations of Events}
+
+\subsection{Union}
+The Union of two events A and B, denoted by $A \cup B$, is the event containing all the elements that belong to A or B or to both. That is,
+$$
+A \cup B=\{x : x \in A \text { or } x \in B\}
+$$
+
+\subsection{Intersection}
+The intersection of two events A and B, denoted by $A \cap B$ or simply $AB$, is the event containing all elements that are common to A and B. That is
+$$
+A \cap B=\{x : x \in A \text { and } x \in B\}
+$$
+
+\subsection{Complement}
+The complement of event A with respect to S, denoted by $A'$ or $A^{C}$, is the set of all elements of S that are not in A. That is
+$$
+A^{\prime}=\{x : x \in S \text { and } x \notin A\}
+$$
+
+\subsection{Mutually Exclusive Events}
+Two events A and B are said to be mutually exclusive or mutually disjoint if $A \cap B = \emptyset$, that is, if A and B have no elements in common.
+
+\subsection{Union of $n$  Events}
+The union of n events $A_1 ,A_2 , \cdots ,A_n$ , denoted by
+$$
+A_1 \cup A_2 \cup ... \cup A_n
+$$
+is the event containing all the elements that belong to one or more of the events $A_1$, $A_2$, or ..., or $A_n$. That is
+$$
+\bigcup_{i=1}^{n} A_{i}=A_{1} \cup A_{2} \cup \cdots \cup A_{n}=\left\{x : x \in A_{1} \text { or } \cdots \text { or } x \in A_{n}\right\}
+$$
+
+\subsection{Intersection of $n $ Events}
+The intersection of n events $A_1 ,A_2 , \cdots ,A_n$ , denoted by
+$$
+A_1 \cap A_2 \cap ... \cap A_n
+$$
+is the event containing all the elements that are common to all of the events $A_1$, $A_2$, or ..., or $A_n$. That is
+$$
+\bigcap_{i=1}^{n} A_{i}=A_{1} \cap A_{2} \cap \cdots \cap A_{n}=\left\{x : x \in A_{1} \text { and } \cdots \text { and } x \in A_{n}\right\}
+$$
+
+\section{Counting}
+
+\subsection{Permutation}
+A permutation is an arrangement of r objects from a set of n objects, where $r \leq n$.
+(Note that the order is taken into consideration in permutation.)
+$$
+_{n} P_{r}=n(n-1)(n-2) \cdots(n-(r-1))=n ! /(n-r) !
+$$
+When not all objects are distinct,
+$$
+n P_{n_{1}, n_{2}, \cdots, n_{k}}=\frac{n !}{n_{1} ! n_{2} ! \cdots n_{k} !}
+$$
+
+
+\subsection{Combination}
+the number of ways of selecting r objects from n objects without regard to the order.
+$$
+\left(\begin{array}{l}{n} \\ {r}\end{array}\right)=\frac{n !}{r !(n-r) !}
+$$
+
+\section{Axioms of Probability}
+
+\subsection{Axiom 1}
+$0 \leq Pr(A) \leq 1$
+
+\subsection{Axiom 2}
+$Pr(S) = 1$
+
+\subsection{Axiom 3}
+If $A_1, A_2, \cdots$ are mutually exclusive (disjoint) events, then
+
+$$
+\operatorname{Pr}\left(\bigcup_{i=1}^{\infty} A_{i}\right)=\sum_{i=1}^{\infty} \operatorname{Pr}\left(A_{i}\right)
+$$
+
+\subsection{Inclusion-Exclusion Principle}
+$$
+\begin{array}{l}{\operatorname{Pr}\left(A_{1} \cup A_{2} \cup \cdots \cup A_{n}\right)=\sum_{i=1}^{n} \operatorname{Pr}\left(A_{i}\right)-\sum_{i=1}^{n-1} \sum_{j=i+1}^{n} \operatorname{Pr}\left(A_{i} \cap A_{j}\right)} \\ {\quad+\sum_{i=1}^{n-2} \sum_{j=i+1}^{n-1} \sum_{k=j+1}^{n} \operatorname{Pr}\left(A_{i} \cap A_{j} \cap A_{k}\right)-\cdots \cdots} \\ {\quad+(-1)^{n+1} \operatorname{Pr}\left(A_{1} \cap A_{2} \cap \cdots \cap A_{n}\right)}\end{array}
+$$
+
+\subsection{Conditional Probability}
+The conditional probability of B given A is defined as
+$$
+\operatorname{Pr}(B | A)=\frac{\operatorname{Pr}(A \cap B)}{\operatorname{Pr}(A)}, \quad \text { if } \operatorname{Pr}(A) \neq 0
+$$
+
+\subsection{Multiplication Rule of Probability}
+In general,
+$$
+\begin{array}{c} 
+\\{\operatorname{Pr}\left(A_{1} \cap \cdots \cap A_{n}\right)=\operatorname{Pr}\left(A_{1}\right) \operatorname{Pr}\left(A_{2} | A_{1}\right)} 
+\\ {\quad \quad \operatorname{Pr}\left(A_{3} | A_{1} \cap A_{2}\right) \cdots \operatorname{Pr}\left(A_{n} | A_{1} \cap \cdots \cap A_{n-1}\right)} 
+\\ {\text { providing that } \operatorname{Pr}\left(A_{1} \cap \cdots \cap A_{n-1}\right)>0}\end{array}
+$$
+
+\subsection{The Law of Total Probability}
+
+Let $A_1, A_2, \cdots , A_n$ be  a partition of the sample space $S$. That is  $A_1, A_2, \cdots , A_n$ are mutually exclusive and exhaustive events such that $A_i \cap A_j = \emptyset$ for $i \neq j$ and $\bigcup_{i=1}^{n} A_{i}=S$.\\
+Then for any event B
+$$
+\operatorname{Pr}(B)=\sum_{i=1}^{n} \operatorname{Pr}\left(B \cap A_{i}\right)=\sum_{i=1}^{n} \operatorname{Pr}\left(A_{i}\right) \operatorname{Pr}\left(B | A_{i}\right)
+$$
+
+\subsection{Baye's Theorem}
+Let $A_1, A_2, \cdots , A_n$ be  a partition of the sample space $S$. Then
+$$
+\operatorname{Pr}\left(A_{k} | B\right)=\frac{\operatorname{Pr}\left(A_{k}\right) \operatorname{Pr}\left(B | A_{k}\right)}{\sum_{i=1}^{n} \operatorname{Pr}\left(A_{i}\right) \operatorname{Pr}\left(B | A_{i}\right)}
+$$
+for $k = 1, \cdots, n$. Or
+$$
+\operatorname{Pr}\left(A_{k} | B\right)=\frac{\operatorname{Pr}\left(A_{k}\right) \operatorname{Pr}\left(B | A_{k}\right)}{\operatorname{Pr}(B)}
+$$
+
+\subsection{Independent Events}
+Two events A and B are independent iff
+$$
+\operatorname{Pr}(A \cap B)=\operatorname{Pr}(A) \operatorname{Pr}(B)
+$$
+
+\subsection{Pairwise Independence}
+A set of events $A_1, A_2, \cdots , A_n$ are pairwise independent iff
+$$
+\operatorname{Pr}(A_i \cap A_j)=\operatorname{Pr}(A_i) \operatorname{Pr}(A_j)
+$$
+for $i \neq j$ and $i, j = 1, \cdots, n$
+
+\subsection{Mutual Independence}
+A set of events $A_1, A_2, \cdots , A_n$ are pairwise independent iff for any subset $\{A_{i1}, A_{i2}, \cdots , A_{ik}\}$ of $A_1, A_2, \cdots , A_n$,
+
+$$
+\operatorname{Pr}\left(A_{i_{1}} \cap A_{i_{2}} \cap \cdots \cap A_{i_{k}}\right)=\operatorname{Pr}\left(A_{i_{1}}\right) \operatorname{Pr}\left(A_{i_{2}}\right) \cdots \operatorname{Pr}\left(A_{i_{k}}\right)
+$$
+
+\section{Concepts of Random Variables}
+
+\subsection{Random Variable}
+Let S be a sample space associated with the experiment, E. A function X, which assigns a number to every element $s \in S$, is called a random variable.
+
+\subsection{Discrete Random Variable}
+If the number of possible values of $X$(i.e.,$R_X$,the range space) is finite or countable infinite, we call $X$ a discrete random variable.
+
+\subsection{Probability (Mass) Function}
+The probability of $X = x_i$ denoted by $f(x_i)$ (i.e. $f(x_i) = \operatorname{pr} \left(X = x_i\right)$, must satisfy the following two conditions. \\
+(1) $f(x_i) \geq 0$ for all $x_i$. \\
+(2)$\sum_{i=1}^{\infty} f\left(x_{i}\right)=1$
+
+\subsection{Continuous Random Variable}
+The range space $R_x$ is an interval or a range of intervals.
+
+\subsection{Probability Density Function}
+Let X be a continuous random variable.
+$$
+\begin{array}{l}{\text { 1. } f(x) \geq 0 \text { for all } x \in R_{X}} 
+\\ {\text { 2. } \int_{R_{X}} f(x) d x=1 \text { or } \int_{-\infty}^{\infty} f(x) d x=1} 
+\\ {\quad \text { since } f(x)=0 \text { for } x \text { not in } R_{X}}
+\\{\left.\text { 3. For any } c \text { and } d \text { such that } c<d, \text { (i.e. }(c, d) \subset \boldsymbol{R}_{X}\right) \text { , }} \\ {\qquad \operatorname{Pr}(c \leq X \leq d)=\int_{c}^{d} f(x) d x}\end{array}
+$$
+
+\subsection{Cumulative Distribution Function}
+We define $F(x)$ to be the cumulative distribution function of the random variable $X$ (abbreviated as c.d.f.)
+where
+$$
+F(x) = \operatorname{Pr}\left(X \leq x \right)
+$$
+
+If $X$ is a discrete random variable, then its c.d.f is a step function.
+$$
+\begin{aligned} F(x) &=\sum_{t \leq x} f(t) \\ &=\sum_{t \leq x} \operatorname{Pr}(X=t) \end{aligned}
+$$
+
+If $X$ is a continuous random variable, then
+$$
+F(x)=\int_{-\infty}^{x} f(t) d t
+$$
+For a continuous random variable $X$,
+$$
+f(x)=\frac{d F(x)}{d x}
+$$
+if the derivative exists.
+
+\subsection{Mean}
+If $X$ is a discrete random variable, taking on values $x_1, x_2, \cdots$ with probability function $f(x)$, then the mean or expected value of $X$, denoted by $E(X)$, is defined by
+$$
+\mu_{X}=E(X)=\sum_{i} x_{i} f\left(x_{i}\right)=\sum_{x} x f(x)
+$$
+If $X$ is a continuous random variable with probability density function $f(x)$, then the mean is defined by
+$$
+\mu_{X}=E(X)=\int_{-\infty}^{\infty} x f(x) d x
+$$
+For any function $g(X)$, \\
+(a) $E[g(X)]=\sum_{x} g(x) f_{X}(x)$ \\
+(b) $E[g(X)]=\int_{-\infty}^{\infty} g(x) f_{X}(x) d x$ \\
+Properties:
+$$
+E(aX + b) = a E(X) + b
+$$
+In general,
+$$
+\begin{array}{l}{E\left[a_{1} g_{1}(X)+a_{2} g_{2}(X)+\cdots+a_{k} g_{k}(X)\right]} \\ {\quad=a_{1} E\left[g_{1}(X)\right]+a_{2} E\left[g_{2}(X)\right]+\cdots+a_{k} E\left[g_{k}(X)\right]}\end{array}
+$$
+
+\subsection{Variance}
+$$
+\begin{aligned} & \sigma_{X}^{2}=V(X)=E\left[\left(X-\mu_{X}\right)^{2}\right] \\=&\left\{\begin{array}{ll}{\sum_{x}\left(x-\mu_{X}\right)^{2} f_{X}(x),} & {\text { if } X \text { is discrete }} \\ {\int_{-\infty}^{\infty}\left(x-\mu_{X}\right)^{2} f_{X}(x) d x,} & {\text { if } X \text { is continuous. }}\end{array}\right.\end{aligned}
+$$
+Remarks:
+$$
+\begin{array}{l}{\text { (a) } V(X) \geq 0} \\ {\text { (b) } V(X)=E\left(X^{2}\right)-[E(X)]^{2}}\end{array}
+$$
+Properties:
+$$
+V(a X+b)=a^{2} V(X)
+$$
+
+\subsection{Standard Deviation}
+The positive square root of the variance.
+
+\subsection{Moment}
+The k-th moment of X is defined by $E(X^k)$.
+
+\subsection{Chebyshev’s Inequality}
+Let $X$ be a random variable (discrete or continuous) with $E(X) = \mu$ and $V(X) = \sigma ^2$.
+For any positive number $k$,
+$$
+\operatorname{Pr}(|X-\mu| \geq k \sigma) \leq 1 / k^{2}
+$$
+That is, the probability that the value of X lies at least $k$ standard deviation from its mean is at most $\frac{1}{k^2}$. \\
+Alternatively,
+$$
+\operatorname{Pr}(|X-\mu|<k \sigma) \geq 1-1 / k^{2}
+$$
+This is true for \textbf{all} distributions with finite mean and variance. 
+
+\section{Two-dimensional Random Variables}
+TO BE CONTINUED 
+
+
+
+\vfill
+\hrule
+~\\
+Prepared by Zechu, AY2019/2020 Semester 1
+\end{multicols}
+
+\end{document}
