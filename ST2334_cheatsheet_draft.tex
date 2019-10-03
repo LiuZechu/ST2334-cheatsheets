@@ -1,6 +1,4 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% writeLaTeX Example: A quick guide to LaTeX
-%
 % Source: Dave Richeson (divisbyzero.com), Dickinson College
 % 
 % A one-size-fits-all LaTeX cheat sheet. Kept to two pages, so it 
@@ -9,21 +7,8 @@
 % Feel free to distribute this example, but please keep the referral
 % to divisbyzero.com
 % 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% How to use writeLaTeX: 
-%
-% You edit the source code here on the left, and the preview on the
-% right shows you the result within a few seconds.
-%
-% Bookmark this page and share the URL with your co-authors. They can
-% edit at the same time!
-%
-% You can upload figures, bibliographies, custom classes and
-% styles using the files menu.
-%
 % If you're new to LaTeX, the wikibook is a great place to start:
 % http://en.wikibooks.org/wiki/LaTeX
-%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[10pt,landscape]{article}
@@ -41,7 +26,7 @@
 		{\geometry{top=1cm,left=1cm,right=1cm,bottom=1cm} }
 		{\geometry{top=1cm,left=1cm,right=1cm,bottom=1cm} }
 	}
-\pagestyle{empty}
+\pagestyle{plain}
 \makeatletter
 \renewcommand{\section}{\@startsection{section}{1}{0mm}%
                                 {-1ex plus -.5ex minus -.2ex}%
@@ -78,14 +63,14 @@
 \setlength{\columnsep}{2pt}
 
 \section{Basic probability concepts}
-\subsection{Oberservation}
+\subsection{Observation}
 Any recording of information, whether it is numerical or categorical.
 
 \subsection{Statistical Experiment}
 Any procedure that generates a set of data (observations).
 
 \subsection{Sample Space}
-The set of all possible outcomes of a statistical experiment is called the sample space and it is represented by the symbol $S$.
+The set of all possible outcomes of a statistical experiment is called the \textbf{sample space} and it is represented by the symbol $S$.
 
 \subsection{Sample Point}
 Every outcome in a sample space is called an element of the sample space or simply a sample point.
@@ -101,13 +86,13 @@ An event is said to be compound if it consists of more than one outcomes (or sam
 
 \subsection{}
 1. The sample space is itself an event and is usually called a sure event. \\
-2. A subset of S that contains no elements at all is the empty set, denoted by $\emptyset$ , and is usually called a null event.
+2. A subset of $S$ that contains no elements at all is the empty set, denoted by $\emptyset$ , and is usually called a null event.
 
 
 \section{Operations of Events}
 
 \subsection{Union}
-The Union of two events A and B, denoted by $A \cup B$, is the event containing all the elements that belong to A or B or to both. That is,
+The union of two events A and B, denoted by $A \cup B$, is the event containing all the elements that belong to A or B or to both. That is,
 $$
 A \cup B=\{x : x \in A \text { or } x \in B\}
 $$
@@ -151,7 +136,7 @@ $$
 
 \subsection{Permutation}
 A permutation is an arrangement of r objects from a set of n objects, where $r \leq n$.
-(Note that the order is taken into consideration in permutation.)
+(Note that the \textbf{order is taken into consideration} in permutation.)
 $$
 _{n} P_{r}=n(n-1)(n-2) \cdots(n-(r-1))=n ! /(n-r) !
 $$
@@ -162,7 +147,7 @@ $$
 
 
 \subsection{Combination}
-the number of ways of selecting r objects from n objects without regard to the order.
+the number of ways of selecting r objects from n objects\textbf{without regard to the order}.
 $$
 \left(\begin{array}{l}{n} \\ {r}\end{array}\right)=\frac{n !}{r !(n-r) !}
 $$
@@ -246,7 +231,7 @@ $$
 Let S be a sample space associated with the experiment, E. A function X, which assigns a number to every element $s \in S$, is called a random variable.
 
 \subsection{Discrete Random Variable}
-If the number of possible values of $X$(i.e.,$R_X$,the range space) is finite or countable infinite, we call $X$ a discrete random variable.
+If the number of possible values of $X$(i.e.,$R_X$,the range space) is \textbf{finite or countably infinite}, we call $X$ a discrete random variable.
 
 \subsection{Probability (Mass) Function}
 The probability of $X = x_i$ denoted by $f(x_i)$ (i.e. $f(x_i) = \operatorname{pr} \left(X = x_i\right)$, must satisfy the following two conditions. \\
@@ -257,7 +242,7 @@ The probability of $X = x_i$ denoted by $f(x_i)$ (i.e. $f(x_i) = \operatorname{p
 The range space $R_x$ is an interval or a range of intervals.
 
 \subsection{Probability Density Function}
-Let X be a continuous random variable.
+Let X be a \textbf{continuous} random variable.
 $$
 \begin{array}{l}{\text { 1. } f(x) \geq 0 \text { for all } x \in R_{X}} 
 \\ {\text { 2. } \int_{R_{X}} f(x) d x=1 \text { or } \int_{-\infty}^{\infty} f(x) d x=1} 
@@ -266,40 +251,40 @@ $$
 $$
 
 \subsection{Cumulative Distribution Function}
-We define $F(x)$ to be the cumulative distribution function of the random variable $X$ (abbreviated as c.d.f.)
+We define $F(x)$ to be the \textbf{cumulative distribution function} of the random variable $X$ (abbreviated as c.d.f.)
 where
 $$
 F(x) = \operatorname{Pr}\left(X \leq x \right)
 $$
 
-If $X$ is a discrete random variable, then its c.d.f is a step function.
+If $X$ is a \textbf{discrete} random variable, then its c.d.f is a step function.
 $$
 \begin{aligned} F(x) &=\sum_{t \leq x} f(t) \\ &=\sum_{t \leq x} \operatorname{Pr}(X=t) \end{aligned}
 $$
 
-If $X$ is a continuous random variable, then
+If $X$ is a \textbf{continuous} random variable, then
 $$
 F(x)=\int_{-\infty}^{x} f(t) d t
 $$
-For a continuous random variable $X$,
+For a \textbf{continuous} random variable $X$,
 $$
 f(x)=\frac{d F(x)}{d x}
 $$
 if the derivative exists.
 
 \subsection{Mean}
-If $X$ is a discrete random variable, taking on values $x_1, x_2, \cdots$ with probability function $f(x)$, then the mean or expected value of $X$, denoted by $E(X)$, is defined by
+If $X$ is a \textbf{discrete} random variable, taking on values $x_1, x_2, \cdots$ with probability function $f(x)$, then the mean or expected value of $X$, denoted by $E(X)$, is defined by
 $$
 \mu_{X}=E(X)=\sum_{i} x_{i} f\left(x_{i}\right)=\sum_{x} x f(x)
 $$
-If $X$ is a continuous random variable with probability density function $f(x)$, then the mean is defined by
+If $X$ is a \textbf{continuous} random variable with probability density function $f(x)$, then the mean is defined by
 $$
 \mu_{X}=E(X)=\int_{-\infty}^{\infty} x f(x) d x
 $$
 For any function $g(X)$, \\
 (a) $E[g(X)]=\sum_{x} g(x) f_{X}(x)$ \\
 (b) $E[g(X)]=\int_{-\infty}^{\infty} g(x) f_{X}(x) d x$ \\
-Properties:
+Property:
 $$
 E(aX + b) = a E(X) + b
 $$
@@ -316,16 +301,16 @@ Remarks:
 $$
 \begin{array}{l}{\text { (a) } V(X) \geq 0} \\ {\text { (b) } V(X)=E\left(X^{2}\right)-[E(X)]^{2}}\end{array}
 $$
-Properties:
+Property:
 $$
 V(a X+b)=a^{2} V(X)
 $$
 
 \subsection{Standard Deviation}
-The positive square root of the variance.
+The \textbf{positive square root} of the variance.
 
 \subsection{Moment}
-The k-th moment of X is defined by $E(X^k)$.
+The \textbf{k-th moment} of X is defined by $E(X^k)$.
 
 \subsection{Chebyshev’s Inequality}
 Let $X$ be a random variable (discrete or continuous) with $E(X) = \mu$ and $V(X) = \sigma ^2$.
@@ -341,8 +326,43 @@ $$
 This is true for \textbf{all} distributions with finite mean and variance. 
 
 \section{Two-dimensional Random Variables}
-TO BE CONTINUED 
 
+\subsection{Definition of 2D RV}
+Let E be an experiment and S a sample space associated with E. Let X and Y be two functions each assigning a real number to each $s \in S$. \\
+We call $(X, Y)$ a \textbf{two-dimensional random variable}. (Sometimes called a \textbf{random vector}). \\
+The above definition can be extended to $n$ random variables.
+
+\subsection{Range Space}
+$$R_{X,Y} = {(x, y) | x \in X(s), y \in Y(s), s \in S}$$
+The above definition can be extended to more than two random variables.
+
+\subsection{Discrete vs. Continuous}
+Discrete: $(X, Y)$ is a two-dimensional \textbf{discrete} random variable if the possible values of $(X(s), Y(s))$ are \textbf{finite or countably infinite}. \\
+Continuous: 
+$(X, Y)$ is a two-dimensional \textbf{continuous} random variable if the possible values of $(X(s), Y(s))$ can assume all values in some region of the Euclidean plane $\mathbb{R}^2$.
+
+\subsection{Joint Probability Function}
+Let $(X, Y)$ be a 2-dimensional \textbf{discrete} random variable defined on the sample space of an experiment. With each possible value $(x_i, y_i)$, we associate a number $f^{X,Y}(x_i, y_i)$ representing $\operatorname{Pr}(X = x_i, Y = y_i)$ and satisfying the following conditions: \\
+1. $f_{X,Y}(x_i, y_j) \geq 0$ for all $(x_i, y_j) \in R_{X,Y} $. \\
+2.
+$$
+\sum_{i=1}^{\infty} \sum_{j=1}^{\infty} f_{X, Y}\left(x_{i}, y_{j}\right)=\sum_{i=1}^{\infty} \sum_{j=1}^{\infty} \operatorname{Pr}\left(X=x_{i}, Y=y_{j}\right)=1
+$$
+
+The function $f_{X,Y}(x, y)$ is called the joint probability function for $(X, Y)$.
+
+$$
+\begin{array}{l}
+\operatorname{Pr}((X, Y) \in A)=\underbrace{\sum \sum} f_{X, Y}(x, y) 
+\\ \hspace*{\fill} (x,y) \in A
+\end{array}
+$$
+
+\subsection{Joint Probability Density Function}
+Let $(X, Y)$ be a 2-dimensional \textbf{continuous} random variable assuming all values in some region $R$ of the Euclidean plane $\mathbb{R}^2$. $f^{X,Y}(x, y)$ is called a joint probability density function if it satisfies the following conditions:
+$$
+\begin{array}{l}{\text { 1. } f_{X, Y}(x, y) \geq 0 \text { for all }(x, y) \in R_{X, Y}} \\ {\text { 2. }} \\ {\qquad \iint_{(x, y) \in R_{X, Y}} f_{X, Y}(x, y) d x d y=1} \\ {\text { or }} \\ {\qquad \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} f_{X, Y}(x, y) d x d y=1}\end{array}
+$$
 
 
 \vfill
