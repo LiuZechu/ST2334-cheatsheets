@@ -148,7 +148,7 @@ When in circle: $(n - 1)!$
 
 
 \subsection{Combination}
-the number of ways of selecting r objects from n objects\textbf{without regard to the order}.
+the number of ways of selecting r objects from n objects \textbf{without regard to the order}.
 $$
 \left(\begin{array}{l}{n} \\ {r}\end{array}\right)=\frac{n !}{r !(n-r) !}
 $$
@@ -220,7 +220,7 @@ $$
 for $i \neq j$ and $i, j = 1, \cdots, n$
 
 \subsection{Mutual Independence}
-A set of events $A_1, A_2, \cdots , A_n$ are pairwise independent iff for any subset $\{A_{i1}, A_{i2}, \cdots , A_{ik}\}$ of $A_1, A_2, \cdots , A_n$,
+A set of events $A_1, A_2, \cdots , A_n$ are mutually independent iff for any subset $\{A_{i1}, A_{i2}, \cdots , A_{ik}\}$ of $A_1, A_2, \cdots , A_n$,
 
 $$
 \operatorname{Pr}\left(A_{i_{1}} \cap A_{i_{2}} \cap \cdots \cap A_{i_{k}}\right)=\operatorname{Pr}\left(A_{i_{1}}\right) \operatorname{Pr}\left(A_{i_{2}}\right) \cdots \operatorname{Pr}\left(A_{i_{k}}\right)
@@ -237,7 +237,7 @@ Let S be a sample space associated with the experiment, E. A function X, which a
 If the number of possible values of $X$(i.e.,$R_X$,the range space) is \textbf{finite or countably infinite}, we call $X$ a discrete random variable.
 
 \subsection{Probability (Mass) Function}
-The probability of $X = x_i$ denoted by $f(x_i)$ (i.e. $f(x_i) = \operatorname{pr} \left(X = x_i\right)$, must satisfy the following two conditions. \\
+The probability of $X = x_i$ denoted by $f(x_i)$ (i.e. $f(x_i) = \operatorname{Pr} \left(X = x_i\right)$, must satisfy the following two conditions. \\
 (1) $f(x_i) \geq 0$ for all $x_i$. \\
 (2)$\sum_{i=1}^{\infty} f\left(x_{i}\right)=1$
 
@@ -340,8 +340,8 @@ $$R_{X,Y} = \{(x, y) | x = X(s), y = Y(s), s \in S\}$$
 The above definition can be extended to more than two random variables.
 
 \subsection{Discrete vs. Continuous}
-Discrete: $(X, Y)$ is a two-dimensional \textbf{discrete} random variable if the possible values of $(X(s), Y(s))$ are \textbf{finite or countably infinite}. \\
-Continuous: 
+\textbf{Discrete}: $(X, Y)$ is a two-dimensional \textbf{discrete} random variable if the possible values of $(X(s), Y(s))$ are \textbf{finite or countably infinite}. \\
+\textbf{Continuous}: 
 $(X, Y)$ is a two-dimensional \textbf{continuous} random variable if the possible values of $(X(s), Y(s))$ can assume all values in some region of the Euclidean plane $\mathbb{R}^2$.
 
 \subsection{Joint Probability Function}
@@ -352,7 +352,7 @@ $$
 \sum_{i=1}^{\infty} \sum_{j=1}^{\infty} f_{X, Y}\left(x_{i}, y_{j}\right)=\sum_{i=1}^{\infty} \sum_{j=1}^{\infty} \operatorname{Pr}\left(X=x_{i}, Y=y_{j}\right)=1
 $$
 
-The function $f_{X,Y}(x, y)$ is called the joint probability function for $(X, Y)$.
+The function $f_{X,Y}(x, y)$ is called the \textbf{joint probability function} for $(X, Y)$.
 
 $$
 \begin{array}{l}
@@ -362,7 +362,7 @@ $$
 $$
 
 \subsection{Joint Probability Density Function}
-Let $(X, Y)$ be a 2-dimensional \textbf{continuous} random variable assuming all values in some region $R$ of the Euclidean plane $\mathbb{R}^2$. $f^{X,Y}(x, y)$ is called a joint probability density function if it satisfies the following conditions:
+Let $(X, Y)$ be a 2-dimensional \textbf{continuous} random variable assuming all values in some region $R$ of the Euclidean plane $\mathbb{R}^2$. $f_{X,Y}(x, y)$ is called a \textbf{joint probability density function} if it satisfies the following conditions:
 $$
 \begin{array}{l}{\text { 1. } f_{X, Y}(x, y) \geq 0 \text { for all }(x, y) \in R_{X, Y}} \\ {\text { 2. }} \\ {\qquad \iint_{(x, y) \in R_{X, Y}} f_{X, Y}(x, y) d x d y=1} \\ {\text { or }} \\ {\qquad \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} f_{X, Y}(x, y) d x d y=1}\end{array}
 $$
