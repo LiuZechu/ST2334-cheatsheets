@@ -144,6 +144,7 @@ When not all objects are distinct,
 $$
 n P_{n_{1}, n_{2}, \cdots, n_{k}}=\frac{n !}{n_{1} ! n_{2} ! \cdots n_{k} !}
 $$
+When in circle: $(n - 1)!$
 
 
 \subsection{Combination}
@@ -184,7 +185,7 @@ $$
 \begin{array}{c} 
 \\{\operatorname{Pr}\left(A_{1} \cap \cdots \cap A_{n}\right)=\operatorname{Pr}\left(A_{1}\right) \operatorname{Pr}\left(A_{2} | A_{1}\right)} 
 \\ {\quad \quad \operatorname{Pr}\left(A_{3} | A_{1} \cap A_{2}\right) \cdots \operatorname{Pr}\left(A_{n} | A_{1} \cap \cdots \cap A_{n-1}\right)} 
-\\ {\text { providing that } \operatorname{Pr}\left(A_{1} \cap \cdots \cap A_{n-1}\right)>0}\end{array}
+\\ {\text { provided that } \operatorname{Pr}\left(A_{1} \cap \cdots \cap A_{n-1}\right)>0}\end{array}
 $$
 
 \subsection{The Law of Total Probability}
@@ -195,7 +196,7 @@ $$
 \operatorname{Pr}(B)=\sum_{i=1}^{n} \operatorname{Pr}\left(B \cap A_{i}\right)=\sum_{i=1}^{n} \operatorname{Pr}\left(A_{i}\right) \operatorname{Pr}\left(B | A_{i}\right)
 $$
 
-\subsection{Baye's Theorem}
+\subsection{Bayes' Theorem}
 Let $A_1, A_2, \cdots , A_n$ be  a partition of the sample space $S$. Then
 $$
 \operatorname{Pr}\left(A_{k} | B\right)=\frac{\operatorname{Pr}\left(A_{k}\right) \operatorname{Pr}\left(B | A_{k}\right)}{\sum_{i=1}^{n} \operatorname{Pr}\left(A_{i}\right) \operatorname{Pr}\left(B | A_{i}\right)}
@@ -224,6 +225,8 @@ A set of events $A_1, A_2, \cdots , A_n$ are pairwise independent iff for any su
 $$
 \operatorname{Pr}\left(A_{i_{1}} \cap A_{i_{2}} \cap \cdots \cap A_{i_{k}}\right)=\operatorname{Pr}\left(A_{i_{1}}\right) \operatorname{Pr}\left(A_{i_{2}}\right) \cdots \operatorname{Pr}\left(A_{i_{k}}\right)
 $$
+
+Note: their complements are also mutually independent.
 
 \section{Concepts of Random Variables}
 
@@ -333,7 +336,7 @@ We call $(X, Y)$ a \textbf{two-dimensional random variable}. (Sometimes called a
 The above definition can be extended to $n$ random variables.
 
 \subsection{Range Space}
-$$R_{X,Y} = {(x, y) | x \in X(s), y \in Y(s), s \in S}$$
+$$R_{X,Y} = \{(x, y) | x = X(s), y = Y(s), s \in S\}$$
 The above definition can be extended to more than two random variables.
 
 \subsection{Discrete vs. Continuous}
@@ -342,7 +345,7 @@ Continuous:
 $(X, Y)$ is a two-dimensional \textbf{continuous} random variable if the possible values of $(X(s), Y(s))$ can assume all values in some region of the Euclidean plane $\mathbb{R}^2$.
 
 \subsection{Joint Probability Function}
-Let $(X, Y)$ be a 2-dimensional \textbf{discrete} random variable defined on the sample space of an experiment. With each possible value $(x_i, y_i)$, we associate a number $f^{X,Y}(x_i, y_i)$ representing $\operatorname{Pr}(X = x_i, Y = y_i)$ and satisfying the following conditions: \\
+Let $(X, Y)$ be a 2-dimensional \textbf{discrete} random variable defined on the sample space of an experiment. With each possible value $(x_i, y_i)$, we associate a number $f_{X,Y}(x_i, y_i)$ representing $\operatorname{Pr}(X = x_i, Y = y_i)$ and satisfying the following conditions: \\
 1. $f_{X,Y}(x_i, y_j) \geq 0$ for all $(x_i, y_j) \in R_{X,Y} $. \\
 2.
 $$
@@ -354,7 +357,7 @@ The function $f_{X,Y}(x, y)$ is called the joint probability function for $(X, Y
 $$
 \begin{array}{l}
 \operatorname{Pr}((X, Y) \in A)=\underbrace{\sum \sum} f_{X, Y}(x, y) 
-\\ \hspace*{\fill} (x,y) \in A
+\\ \hspace*{\fill} (x,y) \in A \hspace{1.2cm}
 \end{array}
 $$
 
