@@ -334,7 +334,7 @@ $\\
 \textbf{Variance}: $\sigma ^2 = V(X) = \frac{(1-p)k}{p^2}$
 
 \subsection{Geometric Distribution}
-The number of trials that are required to have the first success is known to follow \textbf{geometric distribution}. Let X be the number of attempts necessary for the first success. Therefore X follows a Negative Binomial Distribution with parameters k = 1 and p. (or X follows a Geometric Distribution with p = 0.05).
+The number of trials that are required to have the first success is known to follow \textbf{geometric distribution}. Let X be the number of attempts necessary for the first success. Therefore X follows a Negative Binomial Distribution with parameters k = 1 and p. (or X follows a Geometric Distribution with p = p).
 That is $X \sim NB(1, p)$ or $X \sim Geom(p)$.
 
 \subsection{Poisson Distribution}
@@ -425,7 +425,7 @@ P(|\bar{X}-\mu|>\epsilon) \rightarrow 0 \text { as } n \rightarrow \infty
 $
 
 \subsection{Central Limit Theorem}
-Let $(X_1, X_2, ..., X_n)$ be a random sample of size $n$ from a population having any distribution with mean $\mu$ and finite population variance $\sigma ^2$. The sampling distribution of the sample mean $\bar{X}$ is approximately normal with mean $\mu$ and variance $\frac{\mu ^2}{n}$ if $n$ is sufficiently large (\textbf{Rule of thumb}: at least 30). $\bar{X} \sim N(\mu, \frac{\mu ^2}{n})$
+Let $(X_1, X_2, ..., X_n)$ be a random sample of size $n$ from a population having any distribution with mean $\mu$ and finite population variance $\sigma ^2$. The sampling distribution of the sample mean $\bar{X}$ is approximately normal with mean $\mu$ and variance $\frac{\sigma ^2}{n}$ if $n$ is sufficiently large (\textbf{Rule of thumb}: at least 30). $\bar{X} \sim N(\mu, \frac{\sigma ^2}{n})$
 
 \subsection{Sampling distribution of the difference of two sample means}
 If independent samples of sizes $n_1 (\geq 30)$ and $n_2 (\geq 30)$ are drawn from two populations, with means $\mu _1$ and $\mu _2$ and variances $\sigma _1 ^2$ and $\sigma _2 ^2$, respectively, then the sampling distribution of the differences of the sample means, $\bar{X_1}$and $\bar{X_2}$ , is approximately normally distributed with mean and standard deviation given by
@@ -496,7 +496,7 @@ is called an F-distribution with $(n_1, n_2)$ degrees of freedom. Its p.d.f. $f_
 \textbf{Mean}: $\mu = E(X) = n_2 /(n_2 -2)$ with $n_2 > 2$  \\
 \textbf{Variance}: $\sigma ^2 = V(X) = \frac{2 n_{2}^{2}\left(n_{1}+n_{2}-2\right)}{n_{1}\left(n_{2}-2\right)^{2}\left(n_{2}-4\right)} $ with $n_2 > 4$ \\
 \textbf{Remarks}: \\
-(1) Suppose that random samples of sizes $n_1$ and $n_2$ are selected from two normal populations with variances $\sigma _1 ^2$ and $\sigma _2 ^2$ respectively.\\
+(1) Suppose that random samples of sizes $n_1$ and $n_2$ are selected from two \textbf{normal populations} with variances $\sigma _1 ^2$ and $\sigma _2 ^2$ respectively.\\
 $
 \begin{array}{l}{U=\frac{\left(n_{1}-1\right) S_{1}^{2}}{\sigma_{1}^{2}} \sim \chi^{2}\left(n_{1}-1\right)} \\ {V=\frac{\left(n_{2}-1\right) S_{2}^{2}}{\sigma_{2}^{2}} \sim \chi^{2}\left(n_{2}-1\right)}\end{array}
 $\\
@@ -607,7 +607,7 @@ Substitute in values and calculate the value of the test statistic. z = ... = y.
 \subsection{p-value}
 Probability of obtaining a test statistic more extreme than the observed sample value \textbf{given $H_0$ is true}. Also called observed level of significance. (Remember to multiply probability by 2 for two-tailed tests)
 
-\subsection{F-test for variance ratio}
+\subsection{F-test for variance ratio/equality}
 Under $H_0: \sigma _1 ^2 = \sigma _2 ^2$, $F=\frac{S_{1}^{2}}{S_{2}^{2}} \sim F\left(n_{1}-1, n_{2}-1\right)$, hence the \textbf{test statistic} is $F=\frac{S_{1}^{2}}{S_{2}^{2}}$.\\
 $H_0: \sigma _1 ^2 = \sigma _2 ^2$ is rejected if: \\
 $\mathrm{H}_{1}: \sigma_{1}^{2} / \sigma_{2}^{2} \neq 1$, $F<F_{n_{1}-1, n_{2}-1 ; 1-\alpha / 2} \text { or } F>F_{n_{1}-1, n_{2}-1 ; \alpha / 2}$ \\
