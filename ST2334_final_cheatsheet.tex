@@ -1,0 +1,624 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Source: Dave Richeson (divisbyzero.com), Dickinson College
+% 
+% A one-size-fits-all LaTeX cheat sheet. Kept to two pages, so it 
+% can be printed (double-sided) on one piece of paper
+% 
+% Feel free to distribute this example, but please keep the referral
+% to divisbyzero.com
+% 
+% If you're new to LaTeX, the wikibook is a great place to start:
+% http://en.wikibooks.org/wiki/LaTeX
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[10pt,landscape]{article}
+\usepackage{amssymb,amsmath,amsthm,amsfonts}
+\usepackage{multicol,multirow}
+\usepackage{calc}
+\usepackage{ifthen}
+\usepackage[landscape]{geometry}
+\usepackage[colorlinks=true,citecolor=blue,linkcolor=blue]{hyperref}
+
+\ifthenelse{\lengthtest { \paperwidth = 11in}}
+    { \geometry{top=0.1in,left=0.1in,right=0.1in,bottom=0.1in} }
+	{\ifthenelse{ \lengthtest{ \paperwidth = 297mm}}
+		{\geometry{top=0.1cm,left=0.1cm,right=0.1cm,bottom=0.1cm} }
+		{\geometry{top=0.1cm,left=0.1cm,right=0.1cm,bottom=0.1cm} }
+	}
+\pagestyle{plain}
+\makeatletter
+\renewcommand{\section}{\@startsection{section}{1}{0mm}%
+                                {-1ex plus -.5ex minus -.2ex}%
+                                {0.5ex plus .2ex}%x
+                                {\normalfont\large\bfseries}}
+\renewcommand{\subsection}{\@startsection{subsection}{2}{0mm}%
+                                {-1explus -.5ex minus -.2ex}%
+                                {0.5ex plus .2ex}%
+                                {\normalfont\normalsize\bfseries}}
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{0mm}%
+                                {-1ex plus -.5ex minus -.2ex}%
+                                {1ex plus .2ex}%
+                                {\normalfont\small\bfseries}}                       
+\makeatother
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt plus 0.5ex}
+% -----------------------------------------------------------------------
+
+\title{ST2334 Final Cheat Sheet}
+
+\begin{document}
+
+\raggedright
+%\footnotesize
+\scriptsize
+
+\begin{center}
+     \Large{\textbf{NUS ST2334 Final Cheat Sheet}} \\
+\end{center}
+\begin{multicols}{4}
+\setlength{\premulticols}{1pt}
+\setlength{\postmulticols}{1pt}
+\setlength{\multicolsep}{1pt}
+\setlength{\columnsep}{1pt}
+
+\section{Counting and Probability}
+
+\subsection{Permutation}
+\textbf{order is taken into consideration}\\
+$
+_{n} P_{r}=n(n-1)(n-2) \cdots(n-(r-1))=n ! /(n-r) !
+$\\
+When not all objects are distinct,
+$
+n P_{n_{1}, n_{2}, \cdots, n_{k}}=\frac{n !}{n_{1} ! n_{2} ! \cdots n_{k} !}
+$.
+In circle: $(n - 1)!$
+
+\subsection{Combination}
+\textbf{order not considered}.
+$
+\left(\begin{array}{l}{n} \\ {r}\end{array}\right)=\frac{n !}{r !(n-r) !}
+$
+
+\subsection{Axioms of Probability}
+\textbf{Axiom 1}:
+$0 \leq Pr(A) \leq 1$ \\
+
+\textbf{Axiom 2}:
+$Pr(S) = 1$ \\
+
+\textbf{Axiom 3}:
+If $A_1, A_2, \cdots$ are mutually exclusive (disjoint) events, then
+
+$
+\operatorname{Pr}\left(\bigcup_{i=1}^{\infty} A_{i}\right)=\sum_{i=1}^{\infty} \operatorname{Pr}\left(A_{i}\right)
+$
+
+\subsection{Inclusion-Exclusion Principle}
+$
+\begin{array}{l}{\operatorname{Pr}\left(A_{1} \cup A_{2} \cup \cdots \cup A_{n}\right)} \\
+{=\sum_{i=1}^{n} \operatorname{Pr}\left(A_{i}\right)-\sum_{i=1}^{n-1} \sum_{j=i+1}^{n} \operatorname{Pr}\left(A_{i} \cap A_{j}\right)}\\
+ {\quad+\sum_{i=1}^{n-2} \sum_{j=i+1}^{n-1} \sum_{k=j+1}^{n} \operatorname{Pr}\left(A_{i} \cap A_{j} \cap A_{k}\right)} \\
+  {\quad-\cdots+(-1)^{n+1} \operatorname{Pr}\left(A_{1} \cap A_{2} \cap \cdots \cap A_{n}\right)}\end{array}
+$
+
+\subsection{The Law of Total Probability}
+
+Let $A_1, A_2, \cdots , A_n$ be  a partition of the sample space $S$. That is  $A_1, A_2, \cdots , A_n$ are mutually exclusive and exhaustive events such that $A_i \cap A_j = \emptyset$ for $i \neq j$ and $\bigcup_{i=1}^{n} A_{i}=S$.\\
+Then for any event B\\
+$
+\operatorname{Pr}(B)=\sum_{i=1}^{n} \operatorname{Pr}\left(B \cap A_{i}\right)=\sum_{i=1}^{n} \operatorname{Pr}\left(A_{i}\right) \operatorname{Pr}\left(B | A_{i}\right)
+$
+
+\subsection{Bayes' Theorem}
+Let $A_1, A_2, \cdots , A_n$ be  a partition of the sample space $S$. Then\\
+$
+\operatorname{Pr}\left(A_{k} | B\right)=\frac{\operatorname{Pr}\left(A_{k}\right) \operatorname{Pr}\left(B | A_{k}\right)}{\sum_{i=1}^{n} \operatorname{Pr}\left(A_{i}\right) \operatorname{Pr}\left(B | A_{i}\right)}
+$\\
+for $k = 1, \cdots, n$. Or\\
+$
+\operatorname{Pr}\left(A_{k} | B\right)=\frac{\operatorname{Pr}\left(A_{k}\right) \operatorname{Pr}\left(B | A_{k}\right)}{\operatorname{Pr}(B)}
+$
+
+\subsection{Independence}
+\textbf{Independent Events}:\\
+Two events A and B are independent iff
+$
+\operatorname{Pr}(A \cap B)=\operatorname{Pr}(A) \operatorname{Pr}(B)
+$\\
+
+\textbf{Pairwise Independence}:\\
+A set of events $A_1, A_2, \cdots , A_n$ are pairwise independent iff
+$
+\operatorname{Pr}(A_i \cap A_j)=\operatorname{Pr}(A_i) \operatorname{Pr}(A_j)
+$
+for $i \neq j$ and $i, j = 1, \cdots, n$\\
+
+\textbf{Mutual Independence}:\\
+A set of events $A_1, A_2, \cdots , A_n$ are mutually independent iff for any subset $\{A_{i1}, A_{i2}, \cdots , A_{ik}\}$ of $A_1, A_2, \cdots , A_n$, \\
+
+$
+\operatorname{Pr}\left(A_{i_{1}} \cap A_{i_{2}} \cap \cdots \cap A_{i_{k}}\right)=\operatorname{Pr}\left(A_{i_{1}}\right) \operatorname{Pr}\left(A_{i_{2}}\right) \cdots \operatorname{Pr}\left(A_{i_{k}}\right)
+$ \\
+
+Note: their complements are also mutually independent.
+
+\section{Concepts of Random Variables}
+
+\subsection{Probability (Mass) Function}
+The probability of $X = x_i$ denoted by $f(x_i)$ (i.e. $f(x_i) = \operatorname{Pr} \left(X = x_i\right)$, must satisfy the following two conditions. \\
+(1) $f(x_i) \geq 0$ for all $x_i$. \\
+(2)$\sum_{i=1}^{\infty} f\left(x_{i}\right)=1$
+
+\subsection{Probability Density Function}
+Let X be a \textbf{continuous} random variable.\\
+(1) $f(x) \geq 0 \text { for all } x \in R_{X}$ \\
+(2) $\int_{R_{X}} f(x) d x=1 \text { or } \int_{-\infty}^{\infty} f(x) d x=1$ \\
+since $f(x)=0 \text { for } x \text { not in } R_{X}$\\
+(3) For any $c \text { and } d \text { such that } c<d,(i.e. (c, d) \subset \boldsymbol{R}_{X}) \text { , } \operatorname{Pr}(c \leq X \leq d)=\int_{c}^{d} f(x) d x$
+
+\subsection{Cumulative Distribution Function}
+Defined as: $F(x) = \operatorname{Pr}\left(X \leq x \right)$\\
+If $X$ is a \textbf{discrete} random variable, then its c.d.f is a step function:
+$
+F(x) =\sum_{t \leq x} f(t) =\sum_{t \leq x} \operatorname{Pr}(X=t)
+$
+
+If $X$ is a \textbf{continuous} random variable, then\\
+$
+F(x)=\int_{-\infty}^{x} f(t) d t
+$\\
+For a \textbf{continuous} random variable $X$,
+$
+f(x)=\frac{d F(x)}{d x}
+$\\
+if the derivative exists.
+
+\subsection{Mean}
+\textbf{Discrete} random variable:
+$
+\mu_{X}=E(X)=\sum_{i} x_{i} f\left(x_{i}\right)=\sum_{x} x f(x)
+$\\
+\textbf{Continuous} random variable:
+$
+\mu_{X}=E(X)=\int_{-\infty}^{\infty} x f(x) d x
+$\\
+For any function $g(X)$, \\
+(a) $E[g(X)]=\sum_{x} g(x) f_{X}(x)$ \\
+(b) $E[g(X)]=\int_{-\infty}^{\infty} g(x) f_{X}(x) d x$ \\
+Property: $E(aX + b) = a E(X) + b$ \\
+In general,
+$
+\begin{array}{l}{E\left[a_{1} g_{1}(X)+a_{2} g_{2}(X)+\cdots+a_{k} g_{k}(X)\right]} \\ {\quad=a_{1} E\left[g_{1}(X)\right]+a_{2} E\left[g_{2}(X)\right]+\cdots+a_{k} E\left[g_{k}(X)\right]}\end{array}
+$
+
+\subsection{Variance}
+$
+\begin{aligned} & \sigma_{X}^{2}=V(X)=E\left[\left(X-\mu_{X}\right)^{2}\right] \\=&\left\{\begin{array}{ll}{\sum_{x}\left(x-\mu_{X}\right)^{2} f_{X}(x),} & {\text { if } X \text { is discrete }} \\ {\int_{-\infty}^{\infty}\left(x-\mu_{X}\right)^{2} f_{X}(x) d x,} & {\text { if } X \text { is continuous. }}\end{array}\right.\end{aligned}
+$\\
+Remarks:\\
+(a) $V(X) \geq 0$\\
+(b) $V(X)=E\left(X^{2}\right)-[E(X)]^{2}$\\
+(c) \textbf{Standard deviation} is the \textbf{positive square root} of the variance.\\
+Property:$V(a X+b)=a^{2} V(X)$
+
+\subsection{Moment}
+The \textbf{k-th moment} of X is defined by $E(X^k)$.
+
+\subsection{Chebyshev’s Inequality}
+Let $X$ be a random variable (discrete or continuous, with any distribution with finite mean and var) with $E(X) = \mu$ and $V(X) = \sigma ^2$.
+For any $k > 0$,
+$\operatorname{Pr}(|X-\mu| \geq k \sigma) \leq 1 / k^{2}$\\
+That is, the probability that the value of X lies at least $k$ standard deviation from its mean is at most $\frac{1}{k^2}$.
+Alternatively,
+$
+\operatorname{Pr}(|X-\mu|<k \sigma) \geq 1-1 / k^{2}
+$
+
+\subsection{Discrete vs. Continuous 2D-RVs}
+\textbf{Discrete}: the possible values of $(X(s), Y(s))$ are \textbf{finite or countably infinite}. \\
+\textbf{Continuous}: the possible values of $(X(s), Y(s))$ can assume all values in some region of the Euclidean plane $\mathbb{R}^2$.
+
+\subsection{Joint Probability Function (discrete)}
+$f_{X,Y}(x_i, y_i)$ represents $\operatorname{Pr}(X = x_i, Y = y_i)$ and satisfies the following conditions: \\
+1. $f_{X,Y}(x_i, y_j) \geq 0$ for all $(x_i, y_j) \in R_{X,Y} $. \\
+2.
+$
+\sum_{i=1}^{\infty} \sum_{j=1}^{\infty} f_{X, Y}\left(x_{i}, y_{j}\right)=\sum_{i=1}^{\infty} \sum_{j=1}^{\infty} \operatorname{Pr}\left(X=x_{i}, Y=y_{j}\right)=1
+$\\
+
+The function $f_{X,Y}(x, y)$ is called the \textbf{joint probability function} for $(X, Y)$.
+
+$
+\begin{array}{l}
+\operatorname{Pr}((X, Y) \in A)=\underbrace{\sum \sum} f_{X, Y}(x, y) 
+\\ \hspace*{\fill} (x,y) \in A \hspace{1.2cm}
+\end{array}
+$
+
+\subsection{Joint Probability Density Function}
+$f_{X,Y}(x, y)$ (continuous) satisfies the following conditions:\\
+(1) $f_{X, Y}(x, y) \geq 0 \text { for all }(x, y) \in R_{X, Y}$ \\
+(2) $\iint_{(x, y) \in R_{X, Y}} f_{X, Y}(x, y) d x d y=1$\\ 
+or\\
+$ \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} f_{X, Y}(x, y) d x d y=1$
+
+\subsection{Marginal Probability Distribution}
+Discrete: \\
+$f_{X}(x)=\sum_{y} f_{X, Y}(x, y) $ and \\
+$ f_{Y}(y)=\sum_{x} f_{X, Y}(x, y) $\\
+Continuous:\\
+$f_{X}(x)=\int_{-\infty}^{\infty} f_{X, Y}(x, y) d y$ and \\
+$f_{Y}(y)=\int_{-\infty}^{\infty} f_{X, Y}(x, y) d x$
+
+\subsection{Conditional Distribution}
+The conditional distribution of Y given that $X = x$ is given by
+$
+f_{Y | X}(y | x)=\frac{f_{X, Y}(x, y)}{f_{X}(x)}, \quad \text { if } f_{X}(x)>0
+$\\
+for each x within the range of X.
+Vice versa for X given Y.
+
+\subsection{Independent Random Variables}
+Random variables X and Y are independent iff $f_{X,Y} (x, y) = f_X(x) f_Y(y)$ for all x and y.
+This can be extended to n random variables where $n \geq 2$.
+
+\subsection{Expectation}
+$
+E[g(X, Y)]=\left\{\begin{array}{l}{\sum_{x} \sum_{y} g(x, y) f_{X, Y}(x, y), \textrm{ discrete}} 
+\\ {\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} g(x, y) f_{X, Y}(x, y) d x d y, \textrm{ cont.}}\end{array}\right.
+$
+
+\subsection{Covariance}
+Let $(X, Y)$ be a bivariate random vector with joint p.f. (or p.d.f.) $f_{X,Y}(x, y)$ then the covariance of $(X, Y)$ is defined as\\
+$
+Cov(X,Y) = E[(x - \mu _x)(y - \mu _y)]
+$
+$
+=\left\{\begin{array}{l}{\sum_{x} \sum_{y} (x - \mu _x)(y - \mu _y) f_{X, Y}(x, y), \textrm{ discrete}} 
+\\ {\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} (x - \mu _x)(y - \mu _y) f_{X, Y}(x, y) d x d y, \textrm{ cont.}}\end{array}\right.
+$\\
+\textbf{Remarks}:
+1. $Cov(X, Y) = E(XY) - \mu _x \mu _y$ \\
+2. If X and Y are independent, $Cov(X,Y)$ is 0. The converse may not be true. \\
+3. $Cov(aX+b,cY+d) = ac Cov(X,Y)$ \\
+4. $V(aX + bY) = a^2V(X) + b^2V(Y) + 2abCov(X,Y)$
+
+\subsection{Correlation Coefficient}
+It measures the degree of linear relationship between X and Y. $-1 \leq \rho_{X, Y} \leq 1$.
+$
+\begin{array}{l}{\text { The correlation coefficient of } X \text { and } Y,} \\ {\text { denoted by } \operatorname{Cor}(X, Y), \rho_{X, Y} \text { or } \rho, \text { is defined by }} \\ {\qquad \rho_{X, Y}=\frac{\operatorname{Cov}(X, Y)}{\sqrt{V(X)} \sqrt{V(Y)}}}\end{array}
+$
+
+\section{Special Distributions}
+\subsection{Discrete Uniform Distribution}
+$
+f_X(x) = \frac{1}{k}, for x = x_1, x_2, ..., x_k,
+$,
+and 0 otherwise.
+
+\subsection{Bernoulli Distribution}
+\textbf{Bernoulli Experiment}:
+a random experiment with only two possible outcomes, say "success" or "failure".\\
+
+\textbf{Bernoulli Distribution}:
+A random variable X is defined to have a Bernoulli distribution if the probability function of X is given by
+$
+f_X(x) = p^x (1-p)^{1-x}, x = 0, 1
+$,
+and 0 otherwise.
+$Pr(X=1)= p$ and $Pr(X=0)= 1 - p = q$. \\
+\textbf{Mean}: $\mu = E(X) = p$ \\
+\textbf{Variance}: $\sigma ^2 = V(X) = p(1-p) = pq$
+
+\subsection{Binomial Distribution}
+$X \sim B(n, p)$, if the probability function of X is: \\
+$
+\operatorname{Pr}(X=x)=f_{X}(x)=\left(\begin{array}{l}{n} \\ {x}\end{array}\right) p^{x}(1-p)^{n-x}=\left(\begin{array}{l}{n} \\ {x}\end{array}\right) p^{x} q^{n-x}
+$ \\
+for $x = 0, 1, ..., n$ and $0 < p < 1$ and $q = 1 - p$.\\
+X is the number of successes that occur in n independent Bernoulli trials. \\
+\textbf{Mean}: $\mu = E(X) = np$ \\
+\textbf{Variance}: $\sigma ^2 = V(X) = np(1-p) = npq$
+
+\subsection{Negative Binomial Distribution}
+Let X be a random variable represents the number of trials to produce the k successes in a sequence of independent Bernoulli trials. The random variable X is said to follow a Negative Binomial distribution with parameters k and p (i.e. $NB(k,p)$). The probability function of X is given by\\
+$
+\operatorname{Pr}(X=x) =f_{X}(x)=\left(\begin{array}{c}{x-1} \\ {k-1}\end{array}\right) p^{k} q^{x-k}
+$\\
+$
+ \text { for } x=k, k+1, k+2, \cdots
+$\\
+\textbf{Mean}: $\mu = E(X) =\frac{k}{p}$ \\
+\textbf{Variance}: $\sigma ^2 = V(X) = \frac{(1-p)k}{p^2}$
+
+\subsection{Geometric Distribution}
+The number of trials that are required to have the first success is known to follow \textbf{geometric distribution}. Let X be the number of attempts necessary for the first success. Therefore X follows a Negative Binomial Distribution with parameters k = 1 and p. (or X follows a Geometric Distribution with p = p).
+That is $X \sim NB(1, p)$ or $X \sim Geom(p)$.
+
+\subsection{Poisson Distribution}
+$
+f_{X}(x)=\operatorname{Pr}(X=x)=\frac{e^{-\lambda} \lambda^{x}}{x !} \quad \text { for } x=0,1,2,3, \cdots
+$\\
+\textbf{Mean}: $\mu = E(X) = \lambda$ \\
+\textbf{Variance}: $\sigma ^2 = V(X) = \lambda$
+
+\subsection{Poisson approx. to Binomial Dist.}
+Let $X \sim B(n, p)$. Suppose that $n \to \infty$ and $p \to 0$ such that $\lambda = np$ stays constant. Then $X \sim P(np)$ approximately. That is\\
+$
+\lim _{p \rightarrow 0 \atop n \rightarrow \infty} \operatorname{Pr}(X=x)=\frac{e^{-n p}(n p)^{x}}{x !}
+$\\
+Remark: If $p$ is close to 1, we can interchange success and failure to make $p$ close to zero.
+
+\subsection{Continuous Uniform Distribution}
+$X \sim U(a, b)$ over an interval $[a, b]$ if 
+$f_{X}(x)=\frac{1}{b-a}, \quad \text { for } a \leq x \leq b$,
+and 0 otherwise. (a.k.a. rectangular distribution) \\
+\textbf{Mean}: $\mu = E(X) = \frac{a+b}{2}$ \\
+\textbf{Variance}: $\sigma ^2 = V(X) = \frac{1}{12} (b-a)^2$
+
+\subsection{Exponential Distribution}
+$
+f_X(x) = \alpha e^{- \alpha x}
+$, parameter $\alpha > 0$ and $x > 0$; 0 otherwise. $X \sim Exp(\alpha)$\\
+(frequently used as a model for the distribution of times between the occurrence of successive events) \\
+\textbf{Mean}: $\mu = E(X) = \frac{1}{\alpha}$ \\
+\textbf{Variance}: $\sigma ^2 = V(X) = \frac{1}{\alpha ^2}$ \\
+\textbf{OR}:
+$
+f_{X}(x)=\frac{1}{\mu} e^{-x / \mu}, \quad \text { for } x>0
+$\\
+\textbf{Mean}: $\mu = E(X) = \mu$ \\
+\textbf{Variance}: $\sigma ^2 = V(X) = \mu ^2$ \\
+\textbf{No Memory Property}: for any two positive numbers s and t, $\operatorname{Pr}(X>s+t | X>s)=\operatorname{Pr}(X>t)$\\
+\textbf{Upper-tailed cdf}:
+$
+\operatorname{Pr}(X>x)=e^{-a x}, \quad \text { for } x>0
+$
+
+\subsection{Normal Distribution}
+$
+f_{X}(x)=\frac{1}{\sqrt{2 \pi} \sigma} \exp \left(-\frac{(x-\mu)^{2}}{2 \sigma^{2}}\right), \quad-\infty<x<\infty
+$\\
+denoted by $N(\mu, \sigma ^2)$
+
+\subsection{Standardised Normal Distribution}
+If $X \sim N(\mu, \sigma ^2)$, and if $Z = \frac{(X - \mu)}{\sigma}$, then $Z \sim N(0,1)$.
+
+\subsection{* Linear Interpolation (e.g.)}
+Let $Pr(Z > a) = 0.12$. From the normal table, we have $Pr(Z \geq 1.17) =0.121$ and $Pr(Z \geq 1.18) = 0.119$. Hence, $\frac{a - 1.17}{1.18 - 1.17} = \frac{0.12 - 0.121}{0.119 - 0.121}$ $\Rightarrow a = 1.175$
+
+\subsection{Normal approx. to Binomial Dist.}
+When $n \to \infty$ and $p \to 1/2$. \textbf{Rule of thumb}: use this only when $np > 5$ and $n(1-p) > 5$. \\
+If $X \sim B(n, p)$ ($\mu = np, \sigma ^2 = np(1-p)$), as $n \to \infty$,\\
+$
+Z=\frac{X-n p}{\sqrt{n p q}} \text { is approximately } \sim N(0,1)
+$
+
+\subsection{Continuity Correction}
+(for norm. approx. to binom.)\\
+(a) $Pr(X = k) \approx Pr(k - 1/2 < X < k + 1/2) $ \\
+(b) $\operatorname{Pr}(a<X \leq b) \approx \operatorname{Pr}(a+1 / 2<X<b+1 / 2 $ \\
+(c) $\operatorname{Pr}(X \leq c)=\operatorname{Pr}(0 \leq X \leq c) \approx \operatorname{Pr}(-1 / 2<X<c+1 / 2)$ \\
+(d) $\operatorname{Pr}(X>c)=\operatorname{Pr}(c<X \leq n) \approx \operatorname{Pr}(c+1 / 2<X<n+1 / 2)
+$
+
+\section{Sampling}
+
+\subsection{Sample Mean}
+If $(X_1, X_2, ..., X_n)$ represent a random sample of size n, then the sample mean is defined by the statistic
+$
+\bar{X}=\frac{1}{n} \sum_{i=1}^{n} X_{i}
+$
+
+\subsection{Sampling Dist. of Sample Mean}
+For random samples of size $n$ taken from an inf. pop. or from a finite pop. with replacement having pop. mean $\mu$ and pop. s.d. $\sigma$, the sampling distribution of the sample mean $\bar{X}$:
+$
+\mu_{\bar{X}}=\mu_{X} \quad \text { and } \quad \sigma_{\bar{X}}^{2}=\frac{\sigma_{X}^{2}}{n}
+$
+
+\subsection{Law of Large Numbers}
+Let $(X_1, X_2, ..., X_n)$ be a random sample of size $n$ from a population having any distribution with mean $\mu$ and finite population variance $\sigma ^2$. Then for any $\epsilon \in \mathbb{R} $,
+$
+P(|\bar{X}-\mu|>\epsilon) \rightarrow 0 \text { as } n \rightarrow \infty
+$
+
+\subsection{Central Limit Theorem}
+Let $(X_1, X_2, ..., X_n)$ be a random sample of size $n$ from a population having any distribution with mean $\mu$ and finite population variance $\sigma ^2$. The sampling distribution of the sample mean $\bar{X}$ is approximately normal with mean $\mu$ and variance $\frac{\sigma ^2}{n}$ if $n$ is sufficiently large (\textbf{Rule of thumb}: at least 30). $\bar{X} \sim N(\mu, \frac{\sigma ^2}{n})$
+
+\subsection{Sampling distribution of the difference of two sample means}
+If independent samples of sizes $n_1 (\geq 30)$ and $n_2 (\geq 30)$ are drawn from two populations, with means $\mu _1$ and $\mu _2$ and variances $\sigma _1 ^2$ and $\sigma _2 ^2$, respectively, then the sampling distribution of the differences of the sample means, $\bar{X_1}$and $\bar{X_2}$ , is approximately normally distributed with mean and standard deviation given by
+$
+\mu_{\bar{X}_{1}-\bar{X}_{2}}=\mu_{1}-\mu_{2} \text { and } \sigma_{\bar{X}_{1}-\bar{X}_{2}}=\sqrt{\frac{\sigma_{1}^{2}}{n_{1}}+\frac{\sigma_{2}^{2}}{n_{2}}}
+$
+
+\subsection{Chi-square Distribution}
+$Y \sim \chi ^2 (n)$ with n degrees of freedom (n is a positive integer). \\
+\textbf{Mean}: $\mu = E(Y) = n$ \\
+\textbf{Variance}: $\sigma ^2 = V(Y) = 2n$ \\
+(1) For large n, $\chi ^2 (n)  \text{ approx} \sim N(n, 2n)$ \\
+(2) If $Y_1, Y_2, ..., Y_k$ are \textbf{independent} chi-square random variables with $n_1, n_2, ..., n_k$ degrees of freedom respectively, then
+$
+\sum_{i=1}^{k} Y_{i} \sim \chi^{2}\left(\sum_{i=1}^{k} n_{i}\right)
+$
+
+\subsection{Theorem regarding Chi-square and random sample}
+1. If $X \sim N (0,1)$, then $X^2 \sim \chi ^2 (1)$. \\
+2. Let $X \sim N(\mu, \sigma ^2), then [(x - \mu)/ \sigma]^2 \sim \chi ^2 (1)$. \\
+3. Let $(X_1, X_2, ..., X_n)$ be a random sample of size $n$ from a normal population with mean $\mu$ and variance $\sigma ^2$. Define
+$
+Y=\sum_{i=1}^{n} \frac{\left(X_{i}-\mu\right)^{2}}{\sigma^{2}}
+$.
+Then $Y \sim \chi ^2 (n)$
+
+\subsection{Sample Variance}
+ Let $X_1, X_2, ..., X_n$ be a random sample from a population. Sample variance:
+$
+S^{2}=\frac{1}{n-1} \sum_{i=1}^{n}\left(X_{i}-\bar{X}\right)^{2}
+$
+
+\subsection{Sampling distribution of $ (n-1)S^2 / \sigma ^2$}
+ If $S^2$ is the variance of a random sample of size $n$ taken from a \textbf{normal} population having the variance $\sigma ^2$, then
+$$
+\frac{(n-1) S^{2}}{\sigma^{2}} \sim \chi^{2}(n-1)
+$$
+
+\subsection{t-distribution}
+Suppose $Z \sim N(0,1)$, and $U \sim \chi ^2 (n)$. If Z and U are independent, then
+$
+\text{let } T = \frac{Z}{\sqrt{U / n}} \sim t(n)
+$\\
+(t-distribution with $n$ degrees of freedom) \\
+\textbf{Mean}: $\mu = E(T) = 0$ \\
+\textbf{Variance}: $\sigma ^2 = V(T) = n/(n-2)$ for $n > 2$ \\
+\textbf{Remark}: If the random sample was selected from a normal
+population, then\\
+$
+Z=\frac{(\bar{X}-\mu)}{\sigma / \sqrt{n}} \sim N(0,1)
+$
+and
+$
+U = \frac{(n-1) S^{2}}{\sigma^{2}} \sim \chi^{2}(n-1)
+$\\
+It can be shown that $\bar{X}$ and $S^2$ are independent, and so are Z and U. Therefore,\\
+$
+\begin{aligned} T &=\frac{\bar{X}-\mu}{S / \sqrt{n}}=\frac{(\bar{X}-\mu) /(\sigma / \sqrt{n})}{\sqrt{\frac{(n-1) S^{2}}{\sigma^{2}} /(n-1)}} \\ &=\frac{Z}{\sqrt{U /(n-1)}} \sim t_{n-1} \end{aligned}
+$\\
+T (t-value) has a t-distribution with $n - 1$ d.f..
+
+\subsection{F-distribution}
+Let U and V be independent random variables having $\chi ^2 (n_1)$ and $\chi ^2 (n_2)$, respectively, then the distribution of the random variable,
+$
+F = \frac{U / n_1}{V / n_2}
+$
+is called an F-distribution with $(n_1, n_2)$ degrees of freedom. Its p.d.f. $f_F(x) >0$ for $x >0$ and 0 otherwise.\\
+\textbf{Mean}: $\mu = E(X) = n_2 /(n_2 -2)$ with $n_2 > 2$  \\
+\textbf{Variance}: $\sigma ^2 = V(X) = \frac{2 n_{2}^{2}\left(n_{1}+n_{2}-2\right)}{n_{1}\left(n_{2}-2\right)^{2}\left(n_{2}-4\right)} $ with $n_2 > 4$ \\
+\textbf{Remarks}: \\
+(1) Suppose that random samples of sizes $n_1$ and $n_2$ are selected from two \textbf{normal populations} with variances $\sigma _1 ^2$ and $\sigma _2 ^2$ respectively.\\
+$
+\begin{array}{l}{U=\frac{\left(n_{1}-1\right) S_{1}^{2}}{\sigma_{1}^{2}} \sim \chi^{2}\left(n_{1}-1\right)} \\ {V=\frac{\left(n_{2}-1\right) S_{2}^{2}}{\sigma_{2}^{2}} \sim \chi^{2}\left(n_{2}-1\right)}\end{array}
+$\\
+are independent random variables. Therefore,\\
+$
+\begin{aligned} F &=\frac{U /\left(n_{1}-1\right)}{V /\left(n_{2}-1\right)}=\frac{\frac{\left(n_{1}-1\right) S_{1}^{2} / \sigma_{1}^{2}}{\left(n_{1}-1\right)}}{\frac{\left(n_{2}-1\right) S_{2}^{2} / \sigma_{2}^{2}}{\left(n_{2}-1\right)}} \\ &=\frac{S_{1}^{2} / \sigma_{1}^{2}}{S_{2}^{2} / \sigma_{2}^{2}} \sim F\left(n_{1}-1, n_{2}-1\right) \end{aligned}
+$\\
+(2) If $F \sim F(n,m)$, then $1/F \sim F(m,n)$. \\
+(3) $F(n_1, n_2; 1 - \alpha) =  1 / F(n_2, n_1; \alpha)$ (useful for statistical table)
+
+
+\section{Estimation based on NormDist.}
+
+\subsection{Unbiased Estimator}
+A statistic $\widehat{\Theta}$ is an unbiased estimator of parameter $\theta$ if $E(\widehat{\Theta}) = \theta$. E.g.: $E(\bar{X}) = \mu$, $E(S^2) = \sigma ^2$
+
+\subsection{Margin of Error $e$}
+We want $\operatorname{Pr}(|\bar{X}-\mu| \leq e) \geq 1-\alpha$.\\
+$
+e \geq z_{\alpha / 2}\left(\frac{\sigma}{\sqrt{n}}\right)
+$.
+Hence, for a given margin of error $e$, the sample size is given by
+$
+n \geq\left(z_{\alpha / 2} \frac{\sigma}{e}\right)^{2}
+$
+
+\subsection{Confidence Interval}
+Suppose $(\widehat{\Theta}_L, \widehat{\Theta}_U)$ and $Pr(\widehat{\Theta}_L < \theta < \widehat{\Theta}_U) = 1 - \alpha$. Then this interval is called a $(1-\alpha)100\%$ \textbf{confidence interval} for $\theta$. $(1-\alpha)$ is called \textbf{confidence coefficient} or \textbf{degree of confidence}.\\
+\smallskip
+\textbf{3 conditions}: A. normal distributions; 
+B. other parameters known;
+C. large sample sizes \\
+\smallskip
+\subsection{One sample; CI for pop. mean $\mu$}
+\textbf{(1) B(known $\sigma ^2$) AND (A OR C)}:\\
+Test statistic: $Z=\frac{(\bar{X}-\mu)}{\sigma / \sqrt{n}} \sim N(0,1)$ \\
+$(1-\alpha)100\%$(same below) CI: $\bar{X} \pm z_{\alpha / 2} \frac{\sigma}{\sqrt{n}}$\\
+\textbf{(2) $\neg B$(unknown $\sigma ^2$) AND A}:\\
+Test statistic: $T=\frac{(\bar{X}-\mu)}{S / \sqrt{n}} \sim t(n-1)$ \\
+CI:$\bar{X} \pm t_{n-1 ; \alpha / 2} \frac{S}{\sqrt{n}}$\\
+\textbf{(3) $\neg B$(unknown $\sigma ^2$) AND C}:\\
+Test statistic: $T=\frac{(\bar{X}-\mu)}{S / \sqrt{n}} \text{ approx} \sim N(0,1)$ \\
+CI: $\bar{X} \pm z_{\alpha / 2} \frac{S}{\sqrt{n}}$\\
+
+\subsection{Two indep. samples; CI for diff. b/w 2 means}
+\textbf{(1) B(known and unequal $\sigma _1 ^2, \sigma _2 ^2$) AND (A OR C)}:\\
+Test statistic: $T=\frac{\bar{X}_{1}-\bar{X}_{2}-\left(\mu_{1}-\mu_{2}\right)}{\sqrt{\sigma_{1}^{2} / n_{1}+\sigma_{2}^{2} / n_{2}}} \sim N(0,1)$ \\
+CI: $\bar{X}_{1}-\bar{X}_{2} \pm z_{\alpha / 2} \sqrt{\frac{\sigma_{1}^{2}}{n_{1}}+\frac{\sigma_{2}^{2}}{n_{2}}}$ \\
+\textbf{(2) $\neg B$(unknown $\sigma _1 ^2, \sigma _2 ^2$) AND C}:\\
+Same as (1), just replace $\sigma _1 ^2, \sigma _2 ^2$ with $S_1 ^2, S_2 ^2$ \\
+\textbf{(3) $\neg B$(unknown but EQUAL $\sigma _1 ^2, \sigma _2 ^2$) AND A}:\\
+Test statistic: $T=\frac{\bar{X}_{1}-\bar{X}_{2}-\left(\mu_{1}-\mu_{2}\right)}{\sqrt{S_{p}^{2}\left(1 / n_{1}+1 / n_{2}\right)}} \sim t(n_1 + n_2 -2)$ \\
+where $\sigma _2$ can be estimated by the pooled sample variance:
+$S_{p}^{2}=\frac{\left(n_{1}-1\right) S_{1}^{2}+\left(n_{2}-1\right) S_{2}^{2}}{n_{1}+n_{2}-2}$ \\
+CI: $\bar{X}_{1}-\bar{X}_{2} \pm t_{n_{1}+n_{2}-2 ; \alpha / 2} \sqrt{S_{p}^{2}\left(\frac{1}{n_{1}}+\frac{1}{n_{2}}\right)}$ (note: for large sample sizes, replace $t_{n_{1}+n_{2}-2 ; \alpha / 2}$ by $z_{\alpha / 2}$.
+
+\subsection{Two paired /dep. samples; CI for diff. b/w 2 means}
+[Just treat the differences as a sample itself]\\
+\textbf{(1) $\neg B$ AND A}:\\
+Test statistic: $T=\frac{\bar{X}_{D}-\mu_{D}}{S_{D} / \sqrt{n}} \sim t(n-1)$ \\
+CI: $\bar{X}_{D} \pm t_{n-1 ; \alpha / 2} \frac{S_{D}}{\sqrt{n}}$ \\
+\textbf{(2) $\neg B$ AND C}:\\
+Test statistic: $T=\frac{\bar{X}_{D}-\mu_{D}}{S_{D} / \sqrt{n}} \text{ approx } \sim N(0,1)$ \\
+CI: $\bar{X}_{D} \pm z_{\alpha / 2} \frac{S_{D}}{\sqrt{n}}$ \\
+
+\subsection{One sample; CI for pop. variance $\sigma ^2$}
+[note: for $\sigma$, just take square roots on both ends of CI]\\
+\textbf{(1) B(known $\mu$) AND A}:\\
+Test statistic: $T=\frac{\sum_{i=1}^{n}\left(X_{i}-\mu\right)^{2}}{\sigma^{2}} \sim \chi ^2 (n)$ \\
+CI: $\frac{\sum_{i=1}^{n}\left(X_{i}-\mu\right)^{2}}{\chi_{n ; \alpha / 2}^{2}}<\sigma^{2}<\frac{\sum_{i=1}^{n}\left(X_{i}-\mu\right)^{2}}{\chi_{n ; 1-\alpha / 2}^{2}}$ \\
+\textbf{(2) $\neg B$(unknown $\mu$) AND A}:\\
+Test statistic: $T=\frac{(n-1) S^{2}}{\sigma^{2}} \sim \chi ^2 (n-1)$\\
+CI: $\frac{(n-1) S^{2}}{\chi_{n-1 ; \alpha / 2}^{2}}<\sigma^{2}<\frac{(n-1) S^{2}}{\chi_{n-1 ; 1-\alpha / 2}^{2}}$ \\
+
+\subsection{Two indep. samples; CI for ratio of 2 variances}
+[note: for $\sigma _1 / \sigma _2$, just take square roots on both ends of CI] \\
+\textbf{(1) $\neg B$(unknown means) AND A}:\\
+Test statistic: $T=\frac{S_{1}^{2} / \sigma_{1}^{2}}{S_{2}^{2} / \sigma_{2}^{2}} \sim F(n_1 - 1, n_2 - 1)$ \\
+CI: $\frac{S_{1}^{2}}{S_{2}^{2}} \frac{1}{F_{n_{1}-1, n_{2}-1 ; \alpha / 2}}<\frac{\sigma_{1}^{2}}{\sigma_{2}^{2}}<\frac{S_{1}^{2}}{S_{2}^{2}} F_{n_{2}-1, n_{1}-1 ; \alpha / 2}$
+
+
+\section{Hypothesis Testing}
+\subsection{Errors}
+\textbf{Type I Error}:
+Pr(reject $H_0$ given $H_0$ is true) = $\alpha$.\\
+i.e. Pr(Type I error) = \textbf{level of significance }\\
+
+\textbf{Type II Error}:
+Pr(\textbf{do not} reject $H_0$ given $H_0$ is false) = Pr(Accept $H_0$ given $H_1$) = $\beta$. \\
+
+[Note: Pr(\textbf{reject} $H_0$ given $H_0$ is false) = $1 - \beta$ is called the \textbf{power} of the test].
+
+\subsection{Steps of Hypo-testing}
+\textbf{Step 1}: Let $\mu$ be the mean of ... \\
+Test $H_0 : \mu = x$ against $H_1: \mu \neq x$.\\
+\textbf{Step 2}: Set $\alpha = 0.05$ \\
+\textbf{Step 3}: State the test statistic used e.g. $Z=\frac{\left(\bar{X}-\mu_{0}\right)}{\sigma / \sqrt{n}}$\\
+$z_{\alpha / 2}=z_{0.025}=1.96$ (Refer to previous sections to choose appropriate test statistic) \\
+State the critical region(s). (Remember to halve $\alpha$ for two-tailed tests) \\
+\textbf{Step 4}:
+Substitute in values and calculate the value of the test statistic. z = ... = y. \\
+
+[OR: $H_0$ is accepted if confidence interval covers $\mu _0$ ] \\
+
+[OR: p-value approach: $H_0$ is rejected if p-value $< \alpha$] \\
+\textbf{Step 5}: Conclusion: $\because$ observed z value = y falls inside critical region, $H_0$ is rejected at $5\%$ level of sig.
+
+\subsection{p-value}
+Probability of obtaining a test statistic more extreme than the observed sample value \textbf{given $H_0$ is true}. Also called observed level of significance. (Remember to multiply probability by 2 for two-tailed tests)
+
+\subsection{F-test for variance ratio/equality}
+Under $H_0: \sigma _1 ^2 = \sigma _2 ^2$, $F=\frac{S_{1}^{2}}{S_{2}^{2}} \sim F\left(n_{1}-1, n_{2}-1\right)$, hence the \textbf{test statistic} is $F=\frac{S_{1}^{2}}{S_{2}^{2}}$.\\
+$H_0: \sigma _1 ^2 = \sigma _2 ^2$ is rejected if: \\
+$\mathrm{H}_{1}: \sigma_{1}^{2} / \sigma_{2}^{2} \neq 1$, $F<F_{n_{1}-1, n_{2}-1 ; 1-\alpha / 2} \text { or } F>F_{n_{1}-1, n_{2}-1 ; \alpha / 2}$ \\
+$\mathrm{H}_{1}: \sigma_{1}^{2} / \sigma_{2}^{2} > 1$, $F>F_{n_{1}-1, n_{2}-1 ; \alpha}$ \\
+$\mathrm{H}_{1}: \sigma_{1}^{2} / \sigma_{2}^{2} < 1$, $F<F_{n_{1}-1, n_{2}-1 ; 1-\alpha}\left(=1 / F_{n_{2}-1, n_{1}-1 ; \alpha}\right)$\\
+
+
+\vfill
+\hrule
+~\\
+Prepared by Zechu, AY2019/2020 Semester 1
+\end{multicols}
+
+\end{document}
