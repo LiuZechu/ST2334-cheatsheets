@@ -1,2 +1,3 @@
-# Examination helpsheets for NUS CS, prepared using LaTeX.
+# Exam Helpsheets for ST2334: Probability and Statistics
 
+This cheatsheet was based on the syllabus of ST2334 offered in Semester 1, AY 2019/2020, taught by Dr Chan Yiu Man in the National University of Singapore (NUS). Please feel free to download and modify it according to your needs.
